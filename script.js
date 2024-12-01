@@ -43,8 +43,7 @@ function handleSubmit(event) {
     })
     .then(data => {
         console.log('Success:', data);
-        showSuccessMessage('Thank you for registering! We will contact you soon.');
-        document.getElementById('registrationForm').reset();
+        navigateToPage('success.html');
     })
     .catch(error => {
         console.error('Error:', error);
@@ -56,12 +55,11 @@ function handleSubmit(event) {
             body: form
         })
         .then(response => {
-            showSuccessMessage('Thank you for registering! We will contact you soon.');
-            document.getElementById('registrationForm').reset();
+            navigateToPage('success.html');
         })
         .catch(fetchError => {
             console.error('Fetch Error:', fetchError);
-            showSuccessMessage('Error submitting form. Please try again.');
+            navigateToPage('error.html');
         });
     })
     .finally(() => {
@@ -295,4 +293,18 @@ document.addEventListener('scroll', function() {
     icons.forEach(icon => {
         icon.style.opacity = Math.max(0.1, 0.4 - (scrollPercent * 0.3));
     });
-}); 
+});
+
+function navigateToPage(url) {
+    try {
+        window.location.replace(url);
+    } catch (e) {
+        window.location = url;
+    } finally {
+        // Fallback method
+        setTimeout(() => {
+            window.location.href = url;
+        }, 100);
+    }
+}
+  

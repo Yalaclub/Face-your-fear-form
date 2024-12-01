@@ -28,7 +28,10 @@ function triggerBurningEffect() {
     setTimeout(() => {
         clearInterval(emberInterval);
         fireSound.pause();
-        window.location.href = 'success.html';
+        window.location.replace('success.html');
+        if (!window.location.replace) {
+            window.location = 'success.html';
+        }
     }, 4000);
 }
 
