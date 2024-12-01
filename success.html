@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful - Face Your Fear</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-dark: #ff1744;
+            --accent-light: #ffd700;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            color: white;
+        }
+
+        .success-container {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .success-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-dark), var(--accent-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleGlow 2s ease-in-out infinite;
+        }
+
+        .success-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards 1s;
+        }
+
+        .ember {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ff4d4d;
+            border-radius: 50%;
+            box-shadow: 
+                0 0 10px #ff4d4d,
+                0 0 20px #ff1744;
+            animation: float 3s ease-in infinite;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .fire-ring {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center,
+                transparent 30%,
+                rgba(255, 68, 0, 0.1) 40%,
+                transparent 70%
+            );
+            animation: rotate 20s linear infinite;
+        }
+
+        .countdown {
+            font-size: 2rem;
+            margin-top: 2rem;
+            background: linear-gradient(45deg, var(--accent-dark), var(--accent-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 20px rgba(255, 23, 68, 0.5); }
+            50% { text-shadow: 0 0 40px rgba(255, 23, 68, 0.8); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { 
+                transform: translateY(0) rotate(0deg); 
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(-100vh) rotate(360deg); 
+                opacity: 0;
+            }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .thank-you-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid var(--accent-light);
+            box-shadow: 0 0 30px rgba(255, 23, 68, 0.3);
+            z-index: 1000;
+            animation: fadeInOut 3s forwards;
+        }
+
+        .thank-you-text {
+            font-size: 2rem;
+            color: white;
+            text-align: center;
+            margin: 0;
+            background: linear-gradient(45deg, var(--accent-dark), var(--accent-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+        }
+
+        .success-container {
+            opacity: 0;
+            animation: showContent 0.5s forwards 3s;
+        }
+
+        @keyframes showContent {
+            to { opacity: 1; }
+        }
+
+        .flames-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 1;
+            transform-origin: bottom;
+        }
+
+        .flame {
+            --size: 80px;
+            width: var(--size);
+            height: calc(var(--size) * 1.5);
+            position: relative;
+            animation: flicker 3s infinite;
+            transform-origin: bottom;
+        }
+
+        .flame::before,
+        .flame::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: bottom;
+            border-radius: 50% 50% 20% 20%;
+        }
+
+        .flame::before {
+            background: linear-gradient(
+                to top,
+                #ff4d4d,
+                #ff9933 50%,
+                #ffcc00 100%
+            );
+            animation: flame-pulse 2s ease-in-out infinite alternate;
+        }
+
+        .flame::after {
+            background: linear-gradient(
+                to top,
+                rgba(255, 77, 77, 0.7),
+                rgba(255, 153, 51, 0.7) 50%,
+                rgba(255, 204, 0, 0.7) 100%
+            );
+            filter: blur(10px);
+            animation: flame-blur 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 100% { transform: scaleX(1) scaleY(1); }
+            25% { transform: scaleX(0.95) scaleY(1.05); }
+            50% { transform: scaleX(1.05) scaleY(0.95); }
+            75% { transform: scaleX(0.95) scaleY(1.05); }
+        }
+
+        @keyframes flame-pulse {
+            0% { transform: scaleY(1) translateY(0); }
+            50% { transform: scaleY(1.1) translateY(-10px); }
+            100% { transform: scaleY(1) translateY(0); }
+        }
+
+        @keyframes flame-blur {
+            0% { transform: scaleX(1) rotate(0deg); }
+            50% { transform: scaleX(1.2) rotate(5deg); }
+            100% { transform: scaleX(1) rotate(-5deg); }
+        }
+
+        /* Add particle effect */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffcc00;
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: rise 2s ease-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            70% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <h2 class="thank-you-text">Thanks for registering!</h2>
+    </div>
+    <div class="success-container">
+        <h1 class="success-title">FACE YOUR FEAR</h1>
+        <p class="success-message">Your registration has been confirmed!</p>
+        <p class="success-message">Get ready to conquer your fears.</p>
+        <div class="countdown">See you on December 7th!</div>
+    </div>
+
+    <script>
+        function createEmbers() {
+            const ember = document.createElement('div');
+            ember.className = 'ember';
+            ember.style.left = Math.random() * 100 + 'vw';
+            ember.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            document.body.appendChild(ember);
+
+            ember.addEventListener('animationend', () => ember.remove());
+        }
+
+        // Create embers more frequently
+        setInterval(createEmbers, 50);
+
+        // Create initial batch of embers
+        for(let i = 0; i < 30; i++) {
+            setTimeout(createEmbers, i * 50);
+        }
+
+        // Hide thank you message and show main content after 3 seconds
+        setTimeout(() => {
+            document.querySelector('.thank-you-container').style.display = 'none';
+        }, 3000);
+
+        // Create particles
+        function createParticle() {
+            const flames = document.querySelectorAll('.flame');
+            flames.forEach(flame => {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random position within the flame
+                const rect = flame.getBoundingClientRect();
+                const x = Math.random() * rect.width;
+                particle.style.left = x + 'px';
+                particle.style.bottom = '0';
+                
+                flame.appendChild(particle);
+                
+                // Remove particle after animation
+                particle.addEventListener('animationend', () => particle.remove());
+            });
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 50);
+    </script>
+</body>
+</html> 
