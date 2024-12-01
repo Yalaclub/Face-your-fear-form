@@ -964,9 +964,7 @@ html[lang="ar"] .lang-ar {
         var(--accent-light) 100%
     );
     outline: none;
-    opacity: 0.7;
-    transition: opacity .2s;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+    opacity: 0.8;
 }
 
 .severity-slider:hover {
@@ -1198,4 +1196,401 @@ h1.lang-ar {
 
 .event-info {
     text-align: right;  /* Keep the event info right-aligned for Arabic */
-} 
+}
+
+/* Add or update these styles */
+@media (max-width: 768px) {
+    /* Arabic text fixes for mobile */
+    html[lang="ar"] .event-info {
+        text-align: right !important;
+        direction: rtl !important;
+    }
+
+    html[lang="ar"] .event-info p,
+    html[lang="ar"] .event-info h3,
+    html[lang="ar"] .event-info ul,
+    html[lang="ar"] .event-info li {
+        text-align: right !important;
+        direction: rtl !important;
+        padding-right: 0;
+    }
+
+    html[lang="ar"] .input-group input,
+    html[lang="ar"] .input-group textarea,
+    html[lang="ar"] .input-group select {
+        text-align: right;
+        direction: rtl;
+        padding-right: 16px;
+    }
+
+    html[lang="ar"] .input-group label {
+        right: 16px;
+        left: auto;
+        text-align: right;
+    }
+
+    html[lang="ar"] .radio-group {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+
+    html[lang="ar"] .radio-group label {
+        text-align: right;
+    }
+}
+
+/* General Arabic fixes */
+html[lang="ar"] .event-details h1.lang-ar {
+    text-align: center !important;
+    width: 100%;
+    display: block;
+}
+
+html[lang="ar"] .event-info p.lang-ar strong {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+/* Update the color for all Arabic headers */
+html[lang="ar"] .event-info h3,
+html[lang="ar"] .event-info h4 {
+    text-align: right !important;
+    color: var(--accent-dark); /* Same color as "Face Your Fear" */
+    background: linear-gradient(45deg,
+        var(--accent-dark) 0%,
+        var(--accent-light) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+/* Specific styling for session headers */
+html[lang="ar"] .event-info h4.lang-ar {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: right !important;
+    padding-right: 20px;
+    position: relative;
+}
+
+/* Add a decorative element before session headers */
+html[lang="ar"] .event-info h4.lang-ar::before {
+    content: '•';
+    position: absolute;
+    right: 0;
+    color: var(--accent-dark);
+    -webkit-text-fill-color: var(--accent-dark); /* Override the gradient for the dot */
+}
+
+/* Ensure proper spacing for lists under session headers */
+html[lang="ar"] .event-info h4.lang-ar + ul {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+/* English text fixes */
+html[lang="en"] .event-info {
+    text-align: left !important;
+    direction: ltr !important;
+}
+
+html[lang="en"] .event-info p,
+html[lang="en"] .event-info h3,
+html[lang="en"] .event-info h4,
+html[lang="en"] .event-info ul,
+html[lang="en"] .event-info li {
+    text-align: left !important;
+    direction: ltr !important;
+    padding-left: 0;
+}
+
+/* English headers styling */
+html[lang="en"] .event-info h3.lang-en,
+html[lang="en"] .event-info h4.lang-en {
+    text-align: left !important;
+    color: var(--accent-dark);
+    background: linear-gradient(45deg,
+        var(--accent-dark) 0%,
+        var(--accent-light) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    padding-left: 20px;
+    position: relative;
+}
+
+/* Add decorative element for English session headers */
+html[lang="en"] .event-info h4.lang-en::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-dark);
+    -webkit-text-fill-color: var(--accent-dark); /* Override the gradient for the dot */
+}
+
+/* Ensure proper spacing for English headers */
+html[lang="en"] .event-info h4.lang-en {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Spacing for lists under English headers */
+html[lang="en"] .event-info h4.lang-en + ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+/* Mobile fixes for English */
+@media (max-width: 768px) {
+    html[lang="en"] .event-info {
+        text-align: left !important;
+    }
+    
+    html[lang="en"] .input-group input,
+    html[lang="en"] .input-group textarea,
+    html[lang="en"] .input-group select {
+        text-align: left;
+        direction: ltr;
+        padding-left: 16px;
+    }
+}
+
+/* Mobile-friendly box adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 0;
+        width: 100%;
+    }
+
+    .event-details, form {
+        margin: 10px 0;
+        padding: 20px;
+        border-radius: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Fix title animation and positioning */
+    .event-details h1 {
+        font-size: 2rem;
+        margin: 10px 0;
+        position: relative;
+        transform: none;
+        opacity: 1;
+    }
+
+    /* Adjust content spacing */
+    .event-info {
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    /* Make form more compact on mobile */
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    .input-group input,
+    .input-group textarea,
+    .input-group select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    /* Adjust QR code size for mobile */
+    .location-qr {
+        width: 80px;
+        height: 80px;
+        margin: 10px auto;
+        display: block;
+    }
+
+    /* Fix glass morphism effect for mobile */
+    .glass-shape {
+        display: none; /* Hide floating shapes on mobile */
+    }
+
+    form {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
+
+/* Ensure smooth transitions */
+.event-details, form {
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+/* Arabic text styling fixes */
+html[lang="ar"] .event-info {
+    text-align: right !important;
+    direction: rtl !important;
+    padding: 0 20px;
+}
+
+html[lang="ar"] .event-info p.lang-ar {
+    text-align: right !important;
+    direction: rtl !important;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+html[lang="ar"] .event-info h3.lang-ar {
+    text-align: right !important;
+    margin: 25px 0 15px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Cairo', sans-serif;
+}
+
+html[lang="ar"] .event-info h4.lang-ar {
+    text-align: right !important;
+    margin: 20px 0 15px 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Cairo', sans-serif;
+    padding-right: 20px;
+}
+
+html[lang="ar"] .event-info ul.lang-ar {
+    text-align: right !important;
+    padding-right: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+html[lang="ar"] .event-info ul.lang-ar li {
+    text-align: right !important;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* Mobile specific fixes for Arabic */
+@media (max-width: 768px) {
+    html[lang="ar"] .event-info {
+        padding: 0 15px;
+    }
+
+    html[lang="ar"] .event-info h3.lang-ar {
+        font-size: 1.3rem;
+    }
+
+    html[lang="ar"] .event-info h4.lang-ar {
+        font-size: 1.1rem;
+    }
+
+    html[lang="ar"] .event-info ul.lang-ar {
+        padding-right: 15px;
+        margin-right: 15px;
+    }
+}
+
+/* Form label gradient styling for both English and Arabic */
+.input-group label,
+h2.lang-en,
+h2.lang-ar,
+select option,
+.severity-label {
+    background: linear-gradient(45deg,
+        var(--accent-dark) 0%,
+        var(--accent-light) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 500;
+}
+
+/* English specific font */
+html[lang="en"] .input-group label,
+html[lang="en"] h2.lang-en {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Update register button styling */
+button[type="submit"] {
+    background: linear-gradient(45deg,
+        var(--accent-dark) 0%,
+        var(--accent-light) 100%
+    );
+    border: none;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Update select dropdown text color */
+select {
+    color: var(--accent-dark);
+    font-weight: 500;
+}
+
+select option {
+    background: white;
+    font-weight: 500;
+    color: var(--accent-dark);
+}
+
+/* Add this to the end of your CSS file */
+.flames-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Adjust based on your flame image height */
+    z-index: 1;
+    pointer-events: none; /* This allows clicking through the flames */
+    background-image: url('flames.png');
+    background-position: bottom center;
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+/* Adjust form padding to prevent overlap */
+form {
+    margin-bottom: 160px; /* Slightly more than flames height */
+}
+
+/* Ensure signature stays above flames */
+.signature {
+    z-index: 2;
+    bottom: 160px; /* Move signature above flames */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .flames-container {
+        height: 100px; /* Smaller flames on mobile */
+    }
+    
+    form {
+        margin-bottom: 110px;
+    }
+    
+    .signature {
+        bottom: 110px;
+    }
+}
