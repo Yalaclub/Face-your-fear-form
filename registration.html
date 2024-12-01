@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YALA Event Registration - The Barriers are Broken</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="language-toggle">
+        <button onclick="toggleLanguage()" id="langToggle">عربي</button>
+    </div>
+
+    <div class="floating-icons-container"></div>
+
+    <div class="container">
+        <div class="logo-container">
+            <img src="yallalogo.png" alt="YALA Logo" class="logo">
+        </div>
+
+        <div class="event-details">
+            <h1 class="lang-en">FACE YOUR FEAR</h1>
+            <h1 class="lang-ar">واجه خوفك</h1>
+            
+            <div class="event-info">
+                <h3 class="lang-en">Event Details</h3>
+                <h3 class="lang-ar">تفاصيل الحدث</h3>
+                
+                <p class="lang-en"><strong>Date:</strong> December 7, 2024</p>
+                <p class="lang-ar"><strong>التاريخ:</strong>  ديسمبر 7, 2024</p>
+                
+                <p class="lang-en"><strong>Location:</strong> Club Equestre Batna</p>
+                <p class="lang-ar"><strong>الموقع:</strong> مركز الفروسية والرماية بولاية باتنة</p>
+                <img src="QRCODE.png" alt="Location QR Code" class="location-qr">
+                
+                <p class="lang-en"><strong>Time:</strong> Starting at 8:00</p>
+                <p class="lang-ar"><strong>الوقت:</strong> إبتداءً من الساعة 8:00 صباحاً</p>
+                
+                <h3 class="lang-en">About the Event</h3>
+                <h3 class="lang-ar">حول الحدث</h3>
+                
+                <p class="lang-en">A voluntary scientific activity featuring workshops focused on identifying and confronting fears, especially phobias including:</p>
+                <p class="lang-ar">نشاط علمي تطوعي يتضمن ورش عمل تركز على التعرف على المخاوف ومواجهتها وخاصة الرهاب ومنها:</p>
+                
+                <ul class="lang-en">
+                    <li>Cats</li>
+                    <li>Heights</li>
+                    <li>Indoor spaces</li>
+                    <li>Darkness</li>
+                    <li>Insects</li>
+                </ul>
+                <ul class="lang-ar">
+                    <li>القطط</li>
+                    <li>المرتفعات</li>
+                    <li>المساحات الداخلية</li>
+                    <li>الظلام</li>
+                    <li>الحشرات</li>
+                </ul>
+
+                <h3 class="lang-en">Program Highlights</h3>
+                <h3 class="lang-ar">أبرز مميزات البرنامج</h3>
+                
+                <h4 class="lang-en">Morning Session:</h4>
+                <h4 class="lang-ar">الجلسة الصباحية:</h4>
+                
+                <ul class="lang-en">
+                    <li>Introduction & Ice-breaking activities</li>
+                    <li>Understanding Phobias</li>
+                    <li>Relaxation Exercises</li>
+                    <li>Healing Workshop with Horses</li>
+                    <li>Nutrition Workshop</li>
+                </ul>
+                <ul class="lang-ar">
+                    <li>مقدمة وأنشطة كسر الجمود</li>
+                    <li>فهم الرهاب</li>
+                    <li>تمارين الاسترخاء</li>
+                    <li>ورشة الشفاء مع الخيول</li>
+                    <li>ورشة التغذية</li>
+                </ul>
+
+                <h4 class="lang-en">Afternoon Session:</h4>
+                <h4 class="lang-ar">جلسة بعد الظهر:</h4>
+                
+                <ul class="lang-en">
+                    <li>Phobia Reduction Exercises</li>
+                    <li>Healthy Food Workshop</li>
+                </ul>
+                <ul class="lang-ar">
+                    <li>تمارين الحد من الرهاب</li>
+                    <li>ورشة الغذاء الصحي</li>
+                </ul>
+
+                <h3 class="lang-en">Expert Support</h3>
+                <h3 class="lang-ar">دعم الخبراء</h3>
+                
+                <ul class="lang-en">
+                    <li>Professional Psychologist</li>
+                    <li>Certified Nutritionist</li>
+                </ul>
+                <ul class="lang-ar">
+                    <li>عالم نفسي محترف</li>
+                    <li>أخصائية تغذية معتمدة</li>
+                </ul>
+            </div>
+        </div>
+
+        <form id="registrationForm" onsubmit="handleSubmit(event)">
+            <h2 class="lang-en">Register Now</h2>
+            <h2 class="lang-ar">سجل الآن</h2>
+            
+            <div class="input-group">
+                <input type="text" name="firstName" id="firstName" required>
+                <label for="firstName" class="lang-en">First Name</label>
+                <label for="firstName" class="lang-ar">الاسم</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="lastName" required>
+                <label for="lastName" class="lang-en">Last Name</label>
+                <label for="lastName" class="lang-ar">اللقب</label>
+            </div>
+
+            <div class="input-group">
+                <input type="tel" id="phone" required>
+                <label for="phone" class="lang-en">Phone Number</label>
+                <label for="phone" class="lang-ar">رقم الهاتف</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="major" required>
+                <label for="major" class="lang-en">University Major</label>
+                <label for="major" class="lang-ar">التخصص الجامعي</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="address" required>
+                <label for="address" class="lang-en">Address</label>
+                <label for="address" class="lang-ar">مكان السكن</label>
+            </div>
+
+            <div class="input-group">
+                <input type="date" id="birthdate" required>
+                <label for="birthdate" class="lang-en">Date of Birth</label>
+                <label for="birthdate" class="lang-ar">تاريخ الميلاد</label>
+            </div>
+
+            <div class="input-group">
+                <select id="phobiaType" required>
+                    <option value="" disabled selected>Select your phobia</option>
+                    <option value="claustrophobia">Claustrophobia - فوبيا الأماكن المغلقة</option>
+                    <option value="trypanophobia">Trypanophobia - فوبيا الإبر</option>
+                    <option value="acrophobia">Acrophobia - فوبيا المرتفعات</option>
+                    <option value="ailurophobia">Ailurophobia - فوبيا القطط</option>
+                    <option value="nyctophobia">Nyctophobia - فوبيا الظلام</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label class="lang-en">Severity (1-10)</label>
+                <label class="lang-ar">شدة الخوف (1-10)</label>
+                <div class="severity-container">
+                    <span id="severityValue">5</span>
+                    <input type="range" 
+                           id="severity" 
+                           class="severity-slider"
+                           min="1" 
+                           max="10" 
+                           value="5" 
+                           required>
+                    <div class="severity-markers">
+                        <span class="severity-marker">1</span>
+                        <span class="severity-marker">2</span>
+                        <span class="severity-marker">3</span>
+                        <span class="severity-marker">4</span>
+                        <span class="severity-marker">5</span>
+                        <span class="severity-marker">6</span>
+                        <span class="severity-marker">7</span>
+                        <span class="severity-marker">8</span>
+                        <span class="severity-marker">9</span>
+                        <span class="severity-marker">10</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <textarea id="phobiaStart" required></textarea>
+                <label for="phobiaStart" class="lang-en">When did your phobia start?</label>
+                <label for="phobiaStart" class="lang-ar">متى بدأت تعاني من هذا الخوف؟</label>
+            </div>
+
+            <div class="input-group">
+                <textarea id="dailyEffect" required></textarea>
+                <label for="dailyEffect" class="lang-en">How does it affect your daily life?</label>
+                <label for="dailyEffect" class="lang-ar">كيف يؤثر على حياتك اليومية؟</label>
+            </div>
+
+            <div class="input-group">
+                <label class="lang-en">Would you like to pay 300 DZD for lunch?</label>
+                <label class="lang-ar">هل ستدفع ثمن 300دج من اجل الغداء؟</label>
+                <div class="radio-group">
+                    <input type="radio" id="lunchYes" name="lunch" value="yes">
+                    <label for="lunchYes" class="lang-en">Yes</label>
+                    <label for="lunchYes" class="lang-ar">نعم</label>
+                    <input type="radio" id="lunchNo" name="lunch" value="no">
+                    <label for="lunchNo" class="lang-en">No</label>
+                    <label for="lunchNo" class="lang-ar">لا</label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label class="lang-en">Is the date and time suitable for you?</label>
+                <label class="lang-ar">هل اليوم و التوقيت مناسب؟</label>
+                <div class="radio-group">
+                    <input type="radio" id="timeYes" name="timesuit" value="yes">
+                    <label for="timeYes" class="lang-en">Yes</label>
+                    <label for="timeYes" class="lang-ar">نعم</label>
+                    <input type="radio" id="timeNo" name="timesuit" value="no">
+                    <label for="timeNo" class="lang-en">No</label>
+                    <label for="timeNo" class="lang-ar">لا</label>
+                </div>
+            </div>
+
+            <button type="submit">
+                <span class="lang-en">Register Now</span>
+                <span class="lang-ar">سجل الآن</span>
+            </button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <div class="signature">
+        <p>Made by LAZ</p>
+    </div>
+</body>
+</html> 

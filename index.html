@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YALA - Heisenberg Entry</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #000;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        .heisenberg-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .heisenberg-image {
+            width: 400px;
+            height: auto;
+            object-fit: contain;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .entry-button {
+            background: none;
+            border: 2px solid #037dd6;
+            color: #037dd6;
+            padding: 15px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .entry-button:hover {
+            background: #037dd6;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #037dd6;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(3, 125, 214, 0.5)); }
+            50% { filter: drop-shadow(0 0 15px rgba(3, 125, 214, 0.8)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="heisenberg-container">
+        <img src="heisenberg.png" alt="Heisenberg" class="heisenberg-image">
+        <button class="entry-button" onclick="showConfirmation()">Heisenberg</button>
+    </div>
+
+    <script>
+        function showConfirmation() {
+            const confirmWindow = window.open('', 'Confirmation', 'width=500,height=600');
+            confirmWindow.document.write(`
+                <html>
+                <head>
+                    <style>
+                        body {
+                            margin: 0;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            min-height: 100vh;
+                            background: #000;
+                            font-family: 'Arial', sans-serif;
+                            color: white;
+                        }
+                        img {
+                            width: 400px;
+                            height: auto;
+                            margin-bottom: 30px;
+                            animation: appear 1s ease-in;
+                        }
+                        h1 {
+                            font-size: 36px;
+                            margin: 0;
+                            text-align: center;
+                            text-transform: uppercase;
+                            letter-spacing: 2px;
+                            animation: appear 1s ease-in 0.5s both;
+                        }
+                        @keyframes appear {
+                            from { opacity: 0; transform: translateY(20px); }
+                            to { opacity: 1; transform: translateY(0); }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <img src="heisenberg.png" alt="Heisenberg">
+                    <h1>You're Damn Right</h1>
+                </body>
+                </html>
+            `);
+
+            setTimeout(() => {
+                confirmWindow.close();
+                window.location.href = 'registration.html';
+            }, 3000);
+        }
+    </script>
+</body>
+</html> 

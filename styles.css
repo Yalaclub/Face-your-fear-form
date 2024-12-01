@@ -1,0 +1,1201 @@
+:root {
+    --dark-primary: #0a192f;    /* Deep navy */
+    --dark-secondary: #1a1a2e;  /* Dark blue */
+    --accent-dark: #ff1744;     /* Deep red */
+    --accent-light: #ffd700;    /* Golden yellow */
+    --light-primary: #ffffff;   /* Pure white */
+    --light-secondary: #87ceeb; /* Sky blue */
+    --glass-bg: rgba(10, 25, 47, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-dark: #0a192f;
+    --text-light: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Google Sans', 'Segoe UI', Roboto, Arial, sans-serif;
+    background: linear-gradient(
+        to bottom,
+        var(--dark-primary) 0%,
+        var(--dark-secondary) 30%,
+        var(--light-secondary) 70%,
+        var(--light-primary) 100%
+    );
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    color: var(--text-light);
+    background-attachment: fixed;
+    background-size: 100% 400%;
+    background-position: top;
+    transition: background-position 0.3s ease;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    z-index: 1;
+}
+
+form {
+    background: linear-gradient(135deg,
+        var(--glass-bg) 0%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Journey line effect */
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        var(--accent-dark) 0%,
+        var(--accent-light) 100%
+    );
+}
+
+h1 {
+    background: linear-gradient(45deg,
+        var(--accent-dark) 0%,
+        var(--accent-light) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    background: linear-gradient(135deg,
+        rgba(10, 25, 47, 0.8) 0%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    border: 1px solid var(--glass-border);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    border-color: var(--accent-light);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+button {
+    background: linear-gradient(45deg,
+        var(--accent-dark) 0%,
+        var(--accent-light) 100%
+    );
+    border: none;
+    color: var(--text-light);
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Section dividers */
+.section-divider {
+    height: 3px;
+    background: linear-gradient(90deg,
+        var(--accent-dark) 0%,
+        var(--accent-light) 100%
+    );
+    margin: 30px 0;
+    position: relative;
+    border-radius: 3px;
+}
+
+.section-divider::before {
+    content: '✦';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--dark-primary);
+    padding: 0 15px;
+    color: var(--accent-light);
+}
+
+/* Event details section */
+.event-details {
+    background: linear-gradient(135deg,
+        var(--glass-bg) 0%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    border-radius: 24px;
+    padding: 40px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fear to hope illustration */
+.event-details::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(
+        circle at center,
+        var(--accent-light) 0%,
+        transparent 70%
+    );
+    opacity: 0.1;
+    animation: hopeLight 4s ease-in-out infinite;
+}
+
+@keyframes hopeLight {
+    0%, 100% { transform: scale(1); opacity: 0.1; }
+    50% { transform: scale(1.2); opacity: 0.2; }
+}
+
+/* Floating icons with light trail effect */
+.icon {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: grayscale(0.7) brightness(1.2);
+    opacity: 0.4;
+    z-index: 0;
+    will-change: transform;
+    transition: all 0.3s ease;
+}
+
+.icon:hover {
+    filter: grayscale(0) brightness(1.5);
+    opacity: 0.8;
+}
+
+/* Radio buttons with gradient */
+.radio-group input[type="radio"] {
+    border: 2px solid var(--accent-light);
+}
+
+.radio-group input[type="radio"]:checked {
+    background: linear-gradient(45deg,
+        var(--accent-dark) 0%,
+        var(--accent-light) 100%
+    );
+}
+
+/* Success message with hope theme */
+.success-message {
+    background: linear-gradient(45deg,
+        var(--accent-light) 0%,
+        var(--light-secondary) 100%
+    );
+    color: var(--text-dark);
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    max-width: 180px;
+    height: auto;
+}
+
+.header-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: brightness(1.5) drop-shadow(0 0 5px var(--primary-color));
+    animation: pulseIcon 2s ease-in-out infinite;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-icon {
+    background-color: rgba(0, 255, 0, 0.1);
+    border-radius: 50%;
+}
+
+@keyframes pulseIcon {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+    }
+    50% { 
+        transform: scale(1.1) rotate(5deg); 
+    }
+}
+
+h2 {
+    font-size: 18px;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid rgba(255, 107, 0, 0.1);
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-color);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--shadow-accent);
+}
+
+.input-group label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    padding: 0 8px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: 0;
+    transform: translateY(-100%);
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+button {
+    background: linear-gradient(45deg, #000000, var(--primary-color));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 107, 0, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px var(--shadow-accent);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+/* Replace airplane styles with floating items */
+.floating-item {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.6;
+    filter: brightness(2) drop-shadow(0 0 10px rgba(0, 255, 0, 0.7));
+}
+
+/* Add different images for floating items */
+.floating-item:nth-child(1) { background-image: url('./icons/@1 (1).png'); }
+.floating-item:nth-child(2) { background-image: url('./icons/@2 (1).png'); }
+.floating-item:nth-child(3) { background-image: url('./icons/@3 (1).png'); }
+.floating-item:nth-child(4) { background-image: url('./icons/@4 (1).png'); }
+.floating-item:nth-child(5) { background-image: url('./icons/@5 (1).png'); }
+.floating-item:nth-child(6) { background-image: url('./icons/@6 (1).png'); }
+.floating-item:nth-child(7) { background-image: url('./icons/@7 (1).png'); }
+.floating-item:nth-child(8) { background-image: url('./icons/@8 (1).png'); }
+.floating-item:nth-child(9) { background-image: url('./icons/@10 (1).png'); }
+.floating-item:nth-child(10) { background-image: url('./icons/@11 (1).png'); }
+.floating-item:nth-child(11) { background-image: url('./icons/@12 (1).png'); }
+.floating-item:nth-child(12) { background-image: url('./icons/@13 (1).png'); }
+.floating-item:nth-child(13) { background-image: url('./icons/@14 (1).png'); }
+.floating-item:nth-child(14) { background-image: url('./icons/@15 (1).png'); }
+.floating-item:nth-child(15) { background-image: url('./icons/@16 (1).png'); }
+
+/* Update animation for floating items */
+.floating-item {
+    animation: float 20s linear infinite;
+    animation-delay: calc(var(--i, 0) * -2s);
+}
+
+@keyframes float {
+    0% {
+        transform: translate(-100vw, var(--y)) rotate(0deg) scale(var(--scale));
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(100vw, var(--y)) rotate(360deg) scale(var(--scale));
+        opacity: 0;
+    }
+}
+
+.event-details::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        transparent 0%,
+        rgba(255, 107, 0, 0.05) 50%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+.event-info {
+    margin: 20px 0;
+}
+
+.event-info h3 {
+    color: var(--primary-color);
+    margin: 20px 0 10px;
+    font-size: 20px;
+}
+
+.event-info h4 {
+    color: var(--secondary-color);
+    margin: 15px 0 10px;
+    font-size: 18px;
+}
+
+.event-info p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.event-info ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.event-info li {
+    margin: 5px 0;
+    line-height: 1.4;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: default;
+}
+
+.event-info li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-info strong {
+    color: var(--secondary-color);
+}
+
+.event-info ul li {
+    position: relative;
+    list-style: none;
+    padding-left: 25px;
+}
+
+.event-info ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.section-divider {
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--primary-color),
+        transparent
+    );
+    margin: 30px 0;
+    position: relative;
+    opacity: 0.5;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .event-details, form {
+        padding: 20px;
+    }
+}
+
+.phobia-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.phobia-icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    opacity: 0.3;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+.signature {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--glass-shadow);
+    transform-origin: right;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.signature p {
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+}
+
+.signature:hover {
+    transform: scale(1.1) rotate(2deg);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.decoration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-icons-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    transform: translateZ(0);
+}
+
+@keyframes floatAcross {
+    0% {
+        transform: translateX(-100px) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+    5% {
+        opacity: 0.3;
+    }
+    10% {
+        transform: translateX(10vw) rotate(36deg) scale(1);
+        opacity: 0.4;
+    }
+    90% {
+        transform: translateX(90vw) rotate(324deg) scale(1);
+        opacity: 0.4;
+    }
+    95% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateX(calc(100vw + 100px)) rotate(360deg) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Language toggle styles */
+.language-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.language-toggle button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 2px solid var(--primary-color);
+    background: var(--glass-bg);
+    color: var(--primary-color);
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+.language-toggle button:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Language specific styles */
+.lang-ar {
+    display: none;
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+    text-align: center !important;  /* Force center alignment */
+}
+
+/* When Arabic is active */
+html[lang="ar"] .lang-ar {
+    display: block;
+}
+
+html[lang="ar"] .lang-en {
+    display: none;
+}
+
+html[lang="ar"] form {
+    direction: rtl;
+}
+
+/* Form styles */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Allow wrapping on mobile */
+}
+
+/* Container for radio options */
+.radio-option {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    min-width: 80px; /* Minimum width for each option */
+}
+
+/* Update radio button spacing */
+.radio-group input[type="radio"] {
+    margin: 0 8px;
+    flex-shrink: 0; /* Prevent radio button from shrinking */
+}
+
+/* Label positioning */
+.radio-group label {
+    white-space: nowrap; /* Prevent label text from wrapping */
+    position: relative;
+    padding: 0 5px;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .input-group {
+        margin-bottom: 30px; /* Increase spacing between groups */
+    }
+
+    .radio-group {
+        margin-top: 25px; /* Add space between question and options */
+        justify-content: flex-start;
+        gap: 15px;
+    }
+
+    /* Question label for radio groups */
+    .input-group > label:not(.radio-group label) {
+        display: block;
+        position: relative;
+        margin-bottom: 10px;
+        transform: none;
+        left: 0;
+        top: 0;
+    }
+}
+
+/* RTL support for mobile */
+html[lang="ar"] .radio-group {
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    html[lang="ar"] .radio-group {
+        justify-content: flex-start;
+    }
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+}
+
+#severityValue {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.radio-group input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    margin-right: 8px;
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+}
+
+.radio-group input[type="radio"]:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.radio-group input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.radio-group label {
+    cursor: pointer;
+    position: relative;
+    padding-left: 5px;
+    vertical-align: middle;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+/* Update RTL/LTR switching styles */
+html[lang="ar"] {
+    direction: rtl;
+}
+
+html[lang="ar"] .input-group label {
+    right: 16px;
+    left: auto;
+}
+
+html[lang="ar"] .language-toggle {
+    left: 20px;
+    right: auto;
+}
+
+html[lang="ar"] .radio-group input[type="radio"] {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+html[lang="ar"] .input-group input,
+html[lang="ar"] .input-group textarea,
+html[lang="ar"] .input-group select {
+    text-align: right;
+}
+
+/* Fix floating label positioning for RTL */
+html[lang="ar"] .input-group input:focus ~ label,
+html[lang="ar"] .input-group input:valid ~ label {
+    transform: translateY(-100%) translateX(10px);
+}
+
+/* Adjust success message position for RTL */
+html[lang="ar"] .success-message {
+    right: auto;
+    left: 20px;
+}
+
+/* Fix radio group alignment in RTL */
+html[lang="ar"] .radio-group {
+    flex-direction: row-reverse;
+}
+
+/* Fix signature position in RTL */
+html[lang="ar"] .signature {
+    left: 20px;
+    right: auto;
+}
+
+/* Add this to your CSS */
+.static-content {
+    display: block !important; /* This ensures the content always shows */
+}
+
+/* Update the language switching rules to exclude static content */
+html[lang="ar"] .lang-ar {
+    display: block;
+}
+
+html[lang="ar"] .lang-en {
+    display: none;
+}
+
+/* The static-content class will override these rules */
+
+/* Find and modify these rules */
+
+/* Remove the general RTL rule that affects all content */
+html[lang="ar"] {
+    direction: rtl;
+}
+
+/* Add new specific rules */
+html[lang="ar"] .container form,
+html[lang="ar"] .language-toggle {
+    direction: rtl;
+}
+
+/* Keep event details in LTR even in Arabic */
+.event-details {
+    direction: ltr !important;  /* Force LTR direction */
+}
+
+.static-content {
+    display: block !important;
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Ensure form elements switch properly */
+html[lang="ar"] form {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Keep the event details section unchanged regardless of language */
+html[lang="ar"] .event-details,
+html[lang="ar"] .event-info,
+html[lang="ar"] .static-content {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+html[lang="ar"] .event-details h1,
+html[lang="ar"] .event-details h3,
+html[lang="ar"] .event-details h4,
+html[lang="ar"] .event-details p,
+html[lang="ar"] .event-details ul,
+html[lang="ar"] .event-details li {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Update these rules */
+html[lang="ar"] .event-details,
+html[lang="ar"] .event-info {
+    direction: rtl;
+    text-align: right;
+}
+
+html[lang="ar"] .event-details h1,
+html[lang="ar"] .event-details h3,
+html[lang="ar"] .event-details h4,
+html[lang="ar"] .event-details p,
+html[lang="ar"] .event-details ul,
+html[lang="ar"] .event-details li {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Remove these rules if they exist */
+.static-content {
+    display: block !important;
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Update language toggle display rules */
+html[lang="en"] .lang-ar {
+    display: none;
+}
+
+html[lang="en"] .lang-en {
+    display: block;
+}
+
+html[lang="ar"] .lang-en {
+    display: none;
+}
+
+html[lang="ar"] .lang-ar {
+    display: block;
+}
+
+/* Add these styles for the severity slider */
+.severity-container {
+    position: relative;
+    padding: 20px 10px;
+    margin: 20px 0;
+}
+
+.severity-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(to right,
+        var(--accent-dark) 0%,
+        var(--accent-light) 100%
+    );
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.severity-slider:hover {
+    opacity: 1;
+}
+
+.severity-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--light-primary);
+    cursor: pointer;
+    border: 3px solid var(--accent-light);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.severity-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px var(--accent-light);
+}
+
+.severity-slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--light-primary);
+    cursor: pointer;
+    border: 3px solid var(--accent-light);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+#severityValue {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg,
+        var(--accent-dark) 0%,
+        var(--accent-light) 100%
+    );
+    padding: 5px 15px;
+    border-radius: 15px;
+    color: var(--light-primary);
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Severity markers */
+.severity-markers {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+.severity-marker {
+    font-size: 12px;
+    color: var(--text-light);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.severity-marker.active {
+    color: var(--accent-light);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Add this to styles.css */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, 
+        var(--accent-dark) 0%,
+        var(--accent-light) 100%
+    );
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.form-section {
+    border-left: 3px solid var(--accent-light);
+    padding-left: 20px;
+    margin-bottom: 30px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.form-section.active {
+    opacity: 1;
+    border-left-width: 5px;
+}
+
+.form-section-title {
+    color: var(--accent-light);
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.input-group.valid input {
+    border-color: #4CAF50;
+}
+
+.input-group.invalid input {
+    border-color: var(--accent-dark);
+}
+
+.validation-message {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    font-size: 12px;
+    color: var(--accent-dark);
+    opacity: 0.7;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.input-group.invalid .validation-message {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.save-draft {
+    background: transparent;
+    border: 2px solid var(--accent-light);
+    color: var(--accent-light);
+    margin-right: 10px;
+}
+
+.save-draft:hover {
+    background: var(--accent-light);
+    color: var(--dark-primary);
+}
+
+.tooltip {
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--dark-primary);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.input-group:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: -5px;
+}
+
+.char-counter {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    font-size: 12px;
+    color: var(--accent-light);
+    opacity: 0.7;
+}
+
+.char-counter.limit-near {
+    color: #FFA500;
+}
+
+.char-counter.limit-reached {
+    color: var(--accent-dark);
+}
+
+/* Add this to your existing styles */
+.location-qr {
+    width: 100px;  /* Adjust size as needed */
+    height: 100px;
+    margin: 10px 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.location-qr:hover {
+    transform: scale(1.1);
+}
+
+/* For RTL support */
+html[lang="ar"] .location-qr {
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+/* Add or modify these styles */
+.lang-ar {
+    text-align: center !important;  /* Force center alignment */
+}
+
+h1.lang-ar {
+    width: 100%;
+    display: block;
+    text-align: center !important;
+    direction: rtl;
+    margin: 0 auto;
+}
+
+/* Update the existing event-details styles */
+.event-details {
+    text-align: center;  /* Center the main container */
+}
+
+.event-info {
+    text-align: right;  /* Keep the event info right-aligned for Arabic */
+} 
